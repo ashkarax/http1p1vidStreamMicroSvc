@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package stream;
+
+option go_package="./internal/pb";
+
+service StreamService {
+    rpc SendVideoStream (VStreamRequest) returns (stream VStreamResponse);
+}
+
+message VStreamRequest{}
+
+message VStreamResponse{
+bytes data=1;
+string errMessage=2;
+}
